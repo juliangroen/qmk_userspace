@@ -3,20 +3,20 @@
 #include QMK_KEYBOARD_H
 
 // =============================================================================
-// Home Row Mods — GACS order (◆⎇⇧⎈)
+// Home Row Mods — SACG order (⇧⎇⎈◆) — Shift on pinky, GUI on index
 // =============================================================================
 
 // Left hand
-#define HM_A LGUI_T(KC_A)
+#define HM_A LSFT_T(KC_A)
 #define HM_S LALT_T(KC_S)
-#define HM_D LSFT_T(KC_D)
-#define HM_F LCTL_T(KC_F)
+#define HM_D LCTL_T(KC_D)
+#define HM_F LGUI_T(KC_F)
 
 // Right hand
-#define HM_J RCTL_T(KC_J)
-#define HM_K RSFT_T(KC_K)
+#define HM_J RGUI_T(KC_J)
+#define HM_K RCTL_T(KC_K)
 #define HM_L RALT_T(KC_L)
-#define HM_SCLN RGUI_T(KC_SCLN)
+#define HM_SCLN RSFT_T(KC_SCLN)
 
 // Left outer column
 #define CT_ESC LCTL_T(KC_ESC)
@@ -52,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LOWER] = LAYOUT_split_3x6_3_ex2(
   //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐
-      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    TG(_BOOT),          _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_LBRC,
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    TG(_BOOT),          _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_RBRC,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-      _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID, KC_BRIU, _______,           _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, KC_BSLS,
+      _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID, KC_BRIU, _______,           _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┼────────┼────────┤
       _______, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //└────────┴────────┴────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┴────────┴────────┘
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐
       KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______,            TG(_BOOT), KC_6,  KC_7,    KC_8,    KC_9,    KC_0,    KC_RBRC,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,           _______, _______, _______, _______, _______, XXXXXXX, KC_EQL,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,           _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┼────────┼────────┤
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //└────────┴────────┴────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┴────────┴────────┘
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT_split_3x6_3_ex2(
   //┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐          ┌────────┬────────┬────────┬────────┬────────┬────────┬────────┐
-      RM_TOGG, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   RM_PREV,           RM_NEXT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+      RM_TOGG, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   XXXXXXX,           XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤          ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RM_SATD, RM_VALD,           RM_VALU, RM_SATU, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_F12,
+      XXXXXXX, RM_NEXT, RM_VALU, RM_HUEU, RM_SATU, RM_SPDU, XXXXXXX,           XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, KC_F12,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┼────────┼────────┤
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RM_HUED,                              RM_HUEU, KC_INS,  XXXXXXX, DT_DOWN, DT_UP,   DT_PRNT,
+      _______, RM_PREV, RM_VALD, RM_HUED, RM_SATD, RM_SPDD,                              XXXXXXX, XXXXXXX, XXXXXXX, DT_DOWN, DT_UP,   DT_PRNT,
   //└────────┴────────┴────────┼────────┼────────┼────────┤                             ├────────┼────────┼────────┼────────┴────────┴────────┘
                                  _______, _______, XXXXXXX,                               _______, _______, _______
   //                           └────────┴────────┴────────┘                             └────────┴────────┴────────┘
